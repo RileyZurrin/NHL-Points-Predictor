@@ -15,7 +15,6 @@ jobs:
 
       - name: Run script
         run: |
-          # Add your script command to update the CSV file
           python web_scraper.py
 
       - name: Commit and push changes
