@@ -1,0 +1,26 @@
+name: Update data
+
+on:
+  schedule:
+    - cron: '7 18 * * *'
+
+jobs:
+  update-csv:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run script
+        run: |
+          # Add your script command to update the CSV file
+          python web_scraper.py
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "Update CSV file [skip ci]"
+          git push -u origin main
