@@ -2,13 +2,14 @@ name: Update data
 
 on:
   schedule:
-    - cron: '11 18 * * *'
+    - cron: '16 18 * * *'
 
 jobs:
   update-csv:
     runs-on: ubuntu-latest
 
     steps:
+      - run: echo "🎉 The job was automatically triggered to update the data at 2am."
       - name: Checkout code
         uses: actions/checkout@v2
 
