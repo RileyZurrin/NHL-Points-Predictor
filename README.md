@@ -10,7 +10,7 @@ Linear Regression: 7.888248219171965
 
 Random Forest: 6.760429713877552 
 
-Gradient Boosting: 6.520630288468742 
+Gradient Boosting: 6.520630288468742 <--- Currently in use on Streamlit website.
 
 Where "Simple Model" is just extrapolation of points: points_end = (points/games played) * 82.
  
