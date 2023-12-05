@@ -9,9 +9,6 @@ on:
 jobs:
   update-csv:
     runs-on: ubuntu-latest
-
-    env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           
     steps:
       - name: Checkout code
@@ -25,10 +22,6 @@ jobs:
       - name: Run script
         run: python web_scraper.py
         
-      - name: Debugging Information
-        run: |
-          echo "GH_TOKEN: $GH_TOKEN"
-          env
           
       - name: Commit and push changes
         run: |
