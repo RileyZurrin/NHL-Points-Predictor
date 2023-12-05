@@ -96,4 +96,4 @@ df = pd.DataFrame(stats, columns=header)
 df = clean(df)
 
 # Write DataFrame to CSV file
-df.to_csv('data.csv', index=False)
+df.to_csv('data_new.csv', index=False)
