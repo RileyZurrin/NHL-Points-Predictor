@@ -2,7 +2,9 @@ name: Update data
 
 on:
   schedule:
-    - cron: '*/4 * * * *'
+    - cron: '* 7 * * *'
+  workflow_dispatch:
+
 
 jobs:
   update-csv:
