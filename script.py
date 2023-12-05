@@ -36,11 +36,16 @@ def main():
     # Display matching names in a selectbox
     selected_names = st.multiselect('Players:', names, default=names[:5])
 
+    # Create two columns
+    col1, col2 = st.columns([4, 1])
+
     # Search Button
-    if st.button("Search"):
+    if col1.button("Search"):
         filtered_df = df_final[df_final['Player'].isin(selected_names)]
     else:
         filtered_df = df_final
+
+    col2.write("[Model Information](https://github.com/RileyZurrin/NHL-Points-Predictor/tree/main)")
 
     # Display the filtered DataFrame as a table
     st.table(filtered_df)
