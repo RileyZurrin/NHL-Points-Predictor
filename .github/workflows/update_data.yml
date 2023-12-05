@@ -20,6 +20,11 @@ jobs:
       - name: Run script
         run: python web_scraper.py
         
+      - name: Debugging Information
+        run: |
+          echo "GH_TOKEN: $GH_TOKEN"
+          env
+          
       - name: Commit and push changes
         run: |
           git config --local user.email "action@github.com"
@@ -27,9 +32,6 @@ jobs:
           git add .
           git commit -m "Update data file [skip ci]"
           git push -u origin main
-      - name: Debugging Information
-        run: |
-          echo "GH_TOKEN: $GH_TOKEN"
-          env
+
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
