@@ -19,3 +19,14 @@ jobs:
 
       - name: Run script
         run: python web_scraper.py
+        
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "Update data file [skip ci]"
+          git push -u origin main
+  
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
