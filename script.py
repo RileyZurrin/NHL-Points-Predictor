@@ -34,7 +34,7 @@ def main():
     st.title("NHL Points Predictions")
 
     # Display matching names in a selectbox
-    selected_names = st.multiselect('Players:', names, default=names[:5])
+    selected_names = st.multiselect('Players:', names)
 
     # Create two columns
     col1, col2 = st.columns([4, 1])
