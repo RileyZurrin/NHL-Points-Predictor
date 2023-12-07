@@ -1,5 +1,5 @@
 # NHL-Points-Predictor
-An exploration of models that attempt to predict NHL players' point totals given their stats partway through the season. See predictions [here](https://nhl-points-predictor.streamlit.app/)
+An exploration of models that attempt to predict NHL players' point totals given their stats partway through the season. See this season's predictions [here](https://nhl-points-predictor.streamlit.app/)
 
 So far, the following models have been applied on the 2022-2023 NHL season. 
 Root mean squared errors are shown, comparing each model's prediction of NHL player end-of-season points totals compared to their actual end-of-season point totals (on test data).
