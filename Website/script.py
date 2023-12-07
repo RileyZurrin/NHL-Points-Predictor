@@ -7,7 +7,7 @@ from clean_data import prepare_X
 def main():
 
     # Read CSV
-    df = pd.read_csv("data.csv")
+    df = pd.read_csv("Website/data.csv")
 
     # Extract names and set index
     names = df.Name.values
