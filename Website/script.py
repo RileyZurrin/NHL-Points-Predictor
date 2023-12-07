@@ -18,7 +18,7 @@ def main():
 
     # Load xgboost model
     gb = xgb.Booster({'nthread': 8})  # init model
-    gb.load_model('model1')  # load data
+    gb.load_model('Website/model1')  # load data
 
     # Make predictions
     dpred = xgb.DMatrix(X_pred)
