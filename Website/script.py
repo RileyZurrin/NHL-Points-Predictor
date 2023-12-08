@@ -17,12 +17,16 @@ def main():
     X_pred = prepare_X(df)[:, 1:]
 
     # Load xgboost model
-    gb = xgb.Booster({'nthread': 8})  # init model
-    gb.load_model('Website/model1')  # load data
-
+    @st.cache
+    def load_model():
+        gb = xgb.Booster({'nthread': 8})  # init model
+        return gb.load_model('Website/model1')  # load data
+        
+    model = load_model()
+    
     # Make predictions
     dpred = xgb.DMatrix(X_pred)
-    ypred = np.round(gb.predict(dpred)).astype(int)
+    ypred = np.round(model.predict(dpred)).astype(int)
 
     # Create final DataFrame
     data_final = {"Player": names, "Projected Points": ypred}
