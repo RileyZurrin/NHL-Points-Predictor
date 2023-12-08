@@ -19,9 +19,8 @@ def main():
     # Load xgboost model
     @st.cache(allow_output_mutation=True)
     def load_model():
-        gb = xgb.Booster({'nthread': 8})  # init model
-        return xgb.Booster.load_model('Website/model1')  # load data
-    
+        return xgb.Booster(model_file='Website/model1') 
+
     model = load_model()
     
     # Make predictions
