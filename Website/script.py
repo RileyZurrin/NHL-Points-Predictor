@@ -20,7 +20,8 @@ def main():
     @st.cache
     def load_model():
         gb = xgb.Booster({'nthread': 8})  # init model
-        return gb.load_model('Website/model1')  # load data
+        gb.load_model('Website/model1')  # load data
+        return gb
         
     model = load_model()
     
