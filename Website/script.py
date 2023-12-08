@@ -17,12 +17,11 @@ def main():
     X_pred = prepare_X(df)[:, 1:]
 
     # Load xgboost model
-    @st.cache
+    @st.cache(allow_output_mutation=True)
     def load_model():
         gb = xgb.Booster({'nthread': 8})  # init model
-        gb.load_model('Website/model1')  # load data
-        return gb
-        
+        return xgb.Booster.load_model('Website/model1')  # load data
+    
     model = load_model()
     
     # Make predictions
