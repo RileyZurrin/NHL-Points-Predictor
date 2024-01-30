@@ -4,6 +4,13 @@ import pandas as pd
 import numpy as np
 from clean_data import prepare_X
 
+hide_default_format = """
+       <style>
+       footer {visibility: hidden;}
+       </style>
+       """
+st.markdown(hide_default_format, unsafe_allow_html=True)
+
 def main():
 
     # Read CSV
