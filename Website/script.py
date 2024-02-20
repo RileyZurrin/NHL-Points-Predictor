@@ -7,7 +7,7 @@ from clean_data import prepare_X
 def main():
 
     # Read CSV
-    df = pd.read_csv("data.csv")
+    df = pd.read_csv("Website/data.csv")
 
     # Extract names and set index
     names = df.Name.values
@@ -17,12 +17,15 @@ def main():
     X_pred = prepare_X(df)[:, 1:]
 
     # Load xgboost model
-    gb = xgb.Booster({'nthread': 8})  # init model
-    gb.load_model('model1')  # load data
+    @st.cache(allow_output_mutation=True)
+    def load_model():
+        return xgb.Booster(model_file='Website/model1') 
 
+    model = load_model()
+    
     # Make predictions
     dpred = xgb.DMatrix(X_pred)
-    ypred = np.round(gb.predict(dpred)).astype(int)
+    ypred = np.round(model.predict(dpred)).astype(int)
 
     # Create final DataFrame
     data_final = {"Player": names, "Projected Points": ypred}
