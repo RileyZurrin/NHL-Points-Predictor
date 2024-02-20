@@ -94,6 +94,7 @@ def extract(url):
 stats, header = extract(url)
 df = pd.DataFrame(stats, columns=header)
 df = clean(df)
+df.drop_duplicates(subset=["Name"])
 
 # Write DataFrame to CSV file
 df.to_csv('Website/data.csv', index=False)
