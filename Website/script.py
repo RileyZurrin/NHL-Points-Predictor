@@ -33,15 +33,15 @@ def main():
     # Generate streamlit features
     st.title("NHL Points Predictions")
 
-    # Display matching names in a selectbox
-    selected_names = st.multiselect('Players:', names)
+    # Display matching name in a selectbox
+    selected_name = st.selectbox('Players:', names, index=None, placeholder="Choose a player")
 
     # Create two columns
     col1, col2 = st.columns([4, 1])
 
-    # Search Button
-    if col1.button("Search"):
-        filtered_df = df_final[df_final['Player'].isin(selected_names)]
+    # Change on select
+    if selected_name:
+        filtered_df = df_final[df_final['Player'] == selected_name]
     else:
         filtered_df = df_final
 
